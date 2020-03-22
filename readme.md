@@ -23,7 +23,7 @@ docker run --name fvtt -p <your favorite port>:30000 -v <wherever you put the fo
 ### Stop the image
 
 ```shell script
-docker container rm fvtt
+docker stop fvtt && docker container rm fvtt
 ```
 
 ### Check the logs
