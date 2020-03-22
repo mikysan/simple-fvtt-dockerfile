@@ -1,6 +1,6 @@
 # Simple Dockerfile for Foundry VTT
 
-This repository provides a simple Dockerfile to run [Foundry VTT](https://foundryvtt.com/) with docker.
+This repository provides a simple Dockerfile to run [Foundry VTT](https://foundryvtt.com/) with [docker](https://www.docker.com/).
 
 ## Installation
 
