@@ -1,37 +1,17 @@
-ARG UBUNTU_VERSION=18.04
+FROM node:12-alpine
 
-FROM ubuntu:${UBUNTU_VERSION}
+ENV UID=1000
+ENV GUID=1000
 
-ENV DEBIAN_FRONTEND noninteractive
+RUN deluser node
+RUN adduser -u $UID -D foundry
 
-RUN set -eux; \
-    apt-get -y update ; apt-get install -y \
-        build-essential \
-        curl \
-        git \
-        gzip \
-        locales \
-        software-properties-common \
-        unzip \
-        vim \
-        ssh \
-        rsync \
-        acl \
-        libssl-dev \
-        gpg-agent \
-    --no-install-recommends --no-install-suggests ; \
-    apt-get -y upgrade ; \
-    rm -r /var/lib/apt/lists/* \
-;
+USER foundry
+RUN mkdir -p /home/foundry/data
+RUN mkdir -p /home/foundry/app
 
-# Install foundry vtt requirements
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get install -y nodejs
-
-WORKDIR /workdir
-
+WORKDIR /home/foundry/app
 COPY . .
 
 EXPOSE 30000
-
-CMD [ "node", "resources/app/main.js", "--dataPath=/foundrydata"]
+CMD ["node", "/home/foundry/app/resources/app/main.js", "--headless", "--dataPath=/home/foundry/data" ]
