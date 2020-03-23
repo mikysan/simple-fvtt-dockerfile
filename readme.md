@@ -17,7 +17,7 @@ Pro tip: whenever you build a new version of Foundry VTT you could tag it with t
 ### Run the image
 
 ```shell script
-docker run --name fvtt -p <your favorite port>:30000 -v <wherever you put the foundrydata directory>:/foundrydata -d <your username>/foundryvtt
+docker run --name fvtt -p <your favorite port>:30000 -v <wherever you put the foundrydata directory>:/home/foundry/data -d <your username>/foundryvtt
 ```
 
 ### Stop the image
