@@ -2,8 +2,6 @@
 
 This repository provides a simple Dockerfile to run [Foundry VTT](https://foundryvtt.com/) with [docker](https://www.docker.com/).
 
-## Installation
-
 Put the `Dockerfile` in the foundryvtt directory you have already downloaded as usual.
 Build the image in foundryvtt directory with the command
 ```shell script
@@ -14,22 +12,34 @@ Pro tip: whenever you build a new version of Foundry VTT you could tag it with t
 
 ## Usage
 
-### Run the image
+### Manual
+
+#### Build the image
+
+#### Run the image
 
 ```shell script
 docker run --name fvtt -p <your favorite port>:30000 -v <wherever you put the foundrydata directory>:/home/foundry/data -d <your username>/foundryvtt
 ```
 
-### Stop the image
+#### Stop the image
 
 ```shell script
 docker stop fvtt && docker container rm fvtt
 ```
 
-### Check the logs
+#### Check the logs
 
 ```shell script
 docker logs fvtt
+```
+
+### docker-compose
+
+
+
+```shell script
+docker-compose build
 ```
 
 ## Contributing
