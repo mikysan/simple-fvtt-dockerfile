@@ -14,4 +14,4 @@ WORKDIR /home/foundry/app
 COPY . .
 
 EXPOSE 30000
-CMD ["node", "./main.js", "--headless", "--dataPath=/home/foundry/data" ]
+CMD ["node", "./resources/app/main.js", "--headless", "--dataPath=/home/foundry/data" ]
