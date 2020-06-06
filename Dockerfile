@@ -13,5 +13,10 @@ RUN mkdir -p /home/foundry/app
 WORKDIR /home/foundry/app
 COPY . .
 
+USER root
+RUN chown foundry /home/foundry/app/* -R
+
+USER foundry
+
 EXPOSE 30000
 CMD ["node", "/home/foundry/app/resources/app/main.js", "--headless", "--dataPath=/home/foundry/data" ]
