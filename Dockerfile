@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:16-alpine
 
 ENV UID=1000
 ENV GID=1000
